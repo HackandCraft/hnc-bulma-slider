@@ -14,6 +14,15 @@ $slider-thumb-to-track-ratio: 2 !default
 $slider-output-width: 3rem !default
 $slider-output-background: $grey-dark !default
 $slider-output-radius: $radius !default
+$slider-tooltip-color: $white !default
+$slider-font-size: $size-7 !default
+$slider-upper-lower-fill: $grey-lighter !default
+$slider-thumb-radius-rounded: $radius-rounded !default
+$slider-size-normal: $size-normal !default
+$slider-size-small: $size-small !default
+$slider-size-medium: $size-medium !default
+$slider-size-large: $size-large !default
+$slider-colors: $colors !default
 
 =slider-size($size)
 	$track-height: math.div($size, $slider-thumb-to-track-ratio)
@@ -87,12 +96,12 @@ input[type="range"]
 					background: $slider-output-background
 					border-radius: $slider-output-radius
 					padding: 0.4rem 0.8rem
-					font-size: $size-7
-					line-height: $size-7
+					font-size: $slider-font-size
+					line-height: $slider-font-size
 					text-align: center
 					text-overflow: ellipsis
 					white-space: nowrap
-					color: $white
+					color: $slider-tooltip-color
 					overflow: hidden
 					pointer-events: none
 					z-index: 200
@@ -151,10 +160,10 @@ input[type="range"]
 			border: $slider-track-border
 
 		&::-ms-fill-lower
-			background: $grey-lighter
+			background: $slider-upper-lower-fill
 			border-radius: $slider-radius
 		&::-ms-fill-upper
-			background: $grey-lighter
+			background: $slider-upper-lower-fill
 			border-radius: $slider-radius
 
 		&::-webkit-slider-thumb
@@ -181,11 +190,11 @@ input[type="range"]
 
 		&.is-circle
 			&::-webkit-slider-thumb
-				border-radius: $radius-rounded
+				border-radius: $slider-thumb-radius-rounded
 			&::-moz-range-thumb
-				border-radius: $radius-rounded
+				border-radius: $slider-thumb-radius-rounded
 			&::-ms-thumb
-				border-radius: $radius-rounded
+				border-radius: $slider-thumb-radius-rounded
 
 		&:active
 			&::-webkit-slider-thumb
@@ -209,18 +218,18 @@ input[type="range"]
 				cursor: not-allowed
 				transform: scale(1)
 
-		+slider-size($size-normal)
+		+slider-size($slider-size-normal)
 
 		&.is-small
-			+slider-size($size-small)
+			+slider-size($slider-size-small)
 
 		&.is-medium
-			+slider-size($size-medium)
+			+slider-size($slider-size-medium)
 
 		&.is-large
-			+slider-size($size-large)
+			+slider-size($slider-size-large)
 
-		@each $name, $pair in $colors
+		@each $name, $pair in $slider-colors
 			$color: nth($pair, 1)
 			$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
 
@@ -237,6 +246,8 @@ input[type="range"]
 				&::-ms-fill-upper
 					background: $color
 
-				&.has-output, .has-output-tooltip + output
+				&.has-output,
+				.has-output-tooltip
+				+ output
 					background-color: $color
 					color: $color-invert
