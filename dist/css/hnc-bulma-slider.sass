@@ -1,29 +1,28 @@
 @use "sass:math"
-@use "sass:list"
-@use "../../node_modules/bulma/sass/utilities/_index.scss" as utilities
+@import "node_modules/bulma/sass/utilities/_index.scss"
 
-$slider-radius: utilities.$radius !default
-$slider-track-background: utilities.$grey-lighter !default
-$slider-track-radius: utilities.$radius !default
-$slider-track-border: 0px solid utilities.$grey !default
-$slider-track-shadow: 0px 0px 0px utilities.$grey !default
-$slider-thumb-background: utilities.$white !default
-$slider-thumb-radius: utilities.$radius !default
-$slider-thumb-border: 1px solid utilities.$grey-light !default
+$slider-radius: $radius !default
+$slider-track-background: $grey-lighter !default
+$slider-track-radius: $radius !default
+$slider-track-border: 0px solid $grey !default
+$slider-track-shadow: 0px 0px 0px $grey !default
+$slider-thumb-background: $white !default
+$slider-thumb-radius: $radius !default
+$slider-thumb-border: 1px solid $grey-light !default
 $slider-thumb-shadow: none !default
 $slider-thumb-to-track-ratio: 2 !default
 $slider-output-width: 3rem !default
-$slider-output-background: utilities.$grey-dark !default
-$slider-output-radius: utilities.$radius !default
-$slider-tooltip-color: utilities.$white !default
-$slider-font-size: utilities.$size-7 !default
-$slider-upper-lower-fill: utilities.$grey-lighter !default
-$slider-thumb-radius-rounded: utilities.$radius-rounded !default
-$slider-size-normal: utilities.$size-normal !default
-$slider-size-small: utilities.$size-small !default
-$slider-size-medium: utilities.$size-medium !default
-$slider-size-large: utilities.$size-large !default
-$slider-colors: utilities.$colors !default
+$slider-output-background: $grey-dark !default
+$slider-output-radius: $radius !default
+$slider-tooltip-color: $white !default
+$slider-font-size: $size-7 !default
+$slider-upper-lower-fill: $grey-lighter !default
+$slider-thumb-radius-rounded: $radius-rounded !default
+$slider-size-normal: $size-normal !default
+$slider-size-small: $size-small !default
+$slider-size-medium: $size-medium !default
+$slider-size-large: $size-large !default
+$slider-colors: $colors !default
 
 =slider-size($size)
 	$track-height: math.div($size, $slider-thumb-to-track-ratio)
@@ -231,8 +230,8 @@ input[type="range"]
 			+slider-size($slider-size-large)
 
 		@each $name, $pair in $slider-colors
-			$color: list.nth($pair, 1)
-			$color-invert: if(list.length($pair)==1,list.nth($pair, 1),list.nth($pair, 2))
+			$color: nth($pair, 1)
+			$color-invert: if(length($pair)==1,nth($pair, 1),nth($pair, 2))
 
 			&.is-#{$name}
 				&::-moz-range-track
@@ -249,6 +248,6 @@ input[type="range"]
 
 				&.has-output,
 				.has-output-tooltip
-				+ output
-					background-color: $color
-					color: $color-invert
+					+ output
+						background-color: $color
+						color: $color-invert
