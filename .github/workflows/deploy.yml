@@ -1,0 +1,27 @@
+name: Deploy 
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: "22.6.x"
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install packages
+        run:  npm install
+
+      - name: Build
+        run:  npm run build
+
+      - name: Publish to npm
+        run:  npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
