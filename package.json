@@ -1,9 +1,9 @@
 {
-	"name": "bulma-slider",
+	"name": "hnc-bulma-slider",
 	"version": "3.0.0",
 	"description": "Display classic slider more sexy, in different colors, sizes, and states ",
-	"main": "dist/js/bulma-slider.min.js",
-	"style": "dist/css/bulma-slider.min.css",
+	"main": "dist/js/hnc-bulma-slider.min.js",
+	"style": "dist/css/hnc-bulma-slider.min.css",
 	"sass": "src/sass/index.sass",
 	"scripts": {
 		"build": "gulp",
@@ -16,7 +16,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/HackandCraft/bulma-slider.git"
+		"url": "git+https://github.com/HackandCraft/hnc-bulma-slider.git"
 	},
 	"keywords": [
 		"Bulma",
@@ -28,9 +28,9 @@
 	"author": "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/HackandCraft/bulma-slider/issues"
+		"url": "https://github.com/HackandCraft/hnc-bulma-slider/issues"
 	},
-	"homepage": "https://github.com/HackandCraft/bulma-slider#readme",
+	"homepage": "https://github.com/HackandCraft/hnc-bulma-slider#readme",
 	"devDependencies": {
 		"@babel/core": "^7.16.7",
 		"@babel/plugin-proposal-object-rest-spread": "^7.16.7",
