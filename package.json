@@ -1,6 +1,6 @@
 {
 	"name": "hnc-bulma-slider",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "Display classic slider more sexy, in different colors, sizes, and states ",
 	"main": "dist/js/hnc-bulma-slider.min.js",
 	"style": "dist/css/hnc-bulma-slider.min.css",
